@@ -9,12 +9,14 @@ import datetime as dt
 
 
 def calculate_interest_rates(start,end,yearly_rate):
-    '''
-    Calculate interest rate for each month.
+    """
+    Calculate interest rate for each month and return total rate.
+    
     start - tuple of integers; start_date, (y, m, d)
     end - tuple of integers; end_date, (y, m, d)
     yearly_rate - float; yearly interest rate in percent
-    '''
+    """
+    
     years_months = saving_period_months(start,end)
     print('Days in a month: {}'.format(years_months))
     rates = []
@@ -33,26 +35,29 @@ def calculate_interest_rates(start,end,yearly_rate):
     
 
 def interest_rate(p,d):
-    '''
+    """
     The formula for interest rate.
+    
     p - real; interest rate in percent, for the whole year
     d - integer; number of days in a month
-    '''
+    """
     return 100 * ((1+p/100)**(d/365) - 1)
     
     
 def leap_interest_rate(p,d):
-    '''
-    The formula for interest rate.
+    """
+    The formula for interest rate, if a year is a leap year.
+    
     p - real; interest rate in percent, for the whole year
     d - integer; number of days in a month
-    '''
+    """
     return 100 * ((1+p/100)**(d/366) - 1)
 
 
 def total_interest_rate(monthly_interest):
-    '''
+    """
     Calculates the total interest rate by summing rates for each month.
+    
     monthly_interest - list of floats
     
     Added the rounding of sum because if in one of the arguments 
@@ -60,24 +65,26 @@ def total_interest_rate(monthly_interest):
     computer arithmetic, the sum is returned as a float with more than 
     two decimals.
     Example:
-    You will see that instead of 3.98 you get 3.9800000000000004
+    (You will see that instead of 3.98 you get 3.9800000000000004)
     
     a = 1.3
     b = 1.275
     c = 1.413
     args = [a,b,c]
     print(sum([round(rate,2) for rate in args])) 
-    '''
+    """
     return round(sum([round(rate,2) for rate in monthly_interest]),2)
 
 
 def saving_period_months(s_d,e_d):
-    '''
+    """
     Creates a dictionary of years as keys where values are lists of 
     days of months for interest calculation.
+    
     s_d - tuple of integers; start_date, (y, m, d)
     e_d - tuple of integers; end_date, (y, m, d)
-    '''
+    """
+    
     start = dt.date(s_d[0],s_d[1],s_d[2])
     end = dt.date(e_d[0],e_d[1],e_d[2])
     
@@ -107,7 +114,7 @@ def saving_period_months(s_d,e_d):
 
         temp_start = intermediate
     
-    if current_month-1 == 0:
+    if current_month == 1:
         current_month = 12
         current_year -= 1
     else:
@@ -121,22 +128,25 @@ def saving_period_months(s_d,e_d):
     
     
 def saving_period(s_d,e_d):
-    '''
+    """
     Calculates the number of days in the saving period.
+    
     s_d - tuple of integers; start_date, (y, m, d)
     e_d - tuple of integers; end_date, (y, m, d)
-    '''
+    """
+    
     start = dt.date(s_d[0],s_d[1],s_d[2])
     end = dt.date(e_d[0],e_d[1],e_d[2])
     return (end - start).days
 
     
 def is_leap_year(year):
-    '''Determine whether a year is a leap year.'''
+    """Determine whether a year is a leap year."""
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
 
 def total_interest(C,p):
+    """Calculate the total interest for amount C and rate p."""
     return C * p/100
 
 
