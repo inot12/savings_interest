@@ -16,7 +16,6 @@ def calculate_interest_rates(start,end,yearly_rate):
     end - tuple of integers; end_date, (y, m, d)
     yearly_rate - float; yearly interest rate in percent
     """
-    
     years_months = saving_period_months(start,end)
     print('Days in a month: {}'.format(years_months))
     rates = []
@@ -84,7 +83,6 @@ def saving_period_months(s_d,e_d):
     s_d - tuple of integers; start_date, (y, m, d)
     e_d - tuple of integers; end_date, (y, m, d)
     """
-    
     start = dt.date(s_d[0],s_d[1],s_d[2])
     end = dt.date(e_d[0],e_d[1],e_d[2])
     
@@ -134,7 +132,6 @@ def saving_period(s_d,e_d):
     s_d - tuple of integers; start_date, (y, m, d)
     e_d - tuple of integers; end_date, (y, m, d)
     """
-    
     start = dt.date(s_d[0],s_d[1],s_d[2])
     end = dt.date(e_d[0],e_d[1],e_d[2])
     return (end - start).days
