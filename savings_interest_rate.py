@@ -18,6 +18,7 @@ def calculate_interest_rates(start,end,yearly_rate):
     years_months = saving_period_months(start,end)
     print('Days in a month: {}'.format(years_months))
     rates = []
+    
     for year in years_months.keys():
         if not is_leap_year(year):
             for days in years_months[year]:
@@ -26,7 +27,8 @@ def calculate_interest_rates(start,end,yearly_rate):
             for days in years_months[year]:
                 rates.append(leap_interest_rate(yearly_rate, days))
     
-    print('Rates (in percent) for each month: {}'.format(rates))          
+    print('Rates (in percent) for each month: {}'.format(rates)) 
+             
     return total_interest_rate(rates)
     
 
@@ -110,10 +112,9 @@ def saving_period_months(s_d,e_d):
     else:
         current_month -= 1
     
+    current_date = dt.date(current_year,current_month,1)
     year_and_months[temp_year].pop(-1)
-    year_and_months[temp_year].append(
-        (end-dt.date(current_year,current_month,1)).days
-    )
+    year_and_months[temp_year].append((end-current_date).days)
 
     return year_and_months
     
@@ -147,8 +148,8 @@ def main():
     
     C = 10000
     K = total_interest(C, interest)
-    print('Total interest for the sum of {} in a period of {} days: {} Ccy.'.
-          format(C,total_days,K))
+    print('Total interest for the sum of {} in a period of {} days: {} Ccy.'
+          .format(C,total_days,K))
 
 
 if __name__ == '__main__':
