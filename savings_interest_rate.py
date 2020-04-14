@@ -55,9 +55,10 @@ def total_interest_rate(monthly_interest):
     Calculates the total interest rate by summing rates for each month.
     monthly_interest - list of floats
     
-    Added the rounding of sum because if in one of the arguments there's only 
-    a 5 without any following numbers, because of computer arithmetic, the 
-    sum is returned as a float with more than two decimals.
+    Added the rounding of sum because if in one of the arguments 
+    there's only a 5 without any following numbers, because of 
+    computer arithmetic, the sum is returned as a float with more than 
+    two decimals.
     Example:
     You will see that instead of 3.98 you get 3.9800000000000004
     
@@ -72,8 +73,8 @@ def total_interest_rate(monthly_interest):
 
 def saving_period_months(s_d,e_d):
     '''
-    Creates a dictionary of years as keys where values are lists of days of
-    months for interest calculation.
+    Creates a dictionary of years as keys where values are lists of 
+    days of months for interest calculation.
     s_d - tuple of integers; start_date, (y, m, d)
     e_d - tuple of integers; end_date, (y, m, d)
     '''
