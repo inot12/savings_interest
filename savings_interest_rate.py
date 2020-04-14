@@ -3,6 +3,8 @@
 Created on Apr 13, 2020
 
 @author:toni
+
+Core code for Interest Calculation App.
 '''
 
 import datetime as dt
