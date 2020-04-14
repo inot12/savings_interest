@@ -115,7 +115,7 @@ def saving_period_months(s_d,e_d):
     year_and_months[temp_year].pop(-1)
     year_and_months[temp_year].append(
         (end-dt.date(current_year,current_month,1)).days
-    )
+        )
 
     return year_and_months
     
@@ -149,8 +149,8 @@ def main():
     
     C = 10000
     K = total_interest(C, interest)
-    print('Total interest for the sum of {} in a period of {} days: {} Ccy.'.
-          format(C,total_days,K))
+    print('Total interest for the sum of {} in a period of {} days: {} Ccy.'
+          .format(C,total_days,K))
 
 
 if __name__ == '__main__':
